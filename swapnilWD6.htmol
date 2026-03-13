@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Registration</title>
+
+    <script>
+        function validateForm() {
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var contact = document.getElementById("contact").value;
+            var dob = document.getElementById("dob").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phonePattern = /^[0-9]{10}$/;
+
+            if (name == "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Email cannot be empty");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address");
+                return false;
+            }
+
+            if (!phonePattern.test(contact)) {
+                alert("Enter a valid 10 digit contact number");
+                return false;
+            }
+
+            if (dob == "") {
+                alert("Please select your Date of Birth");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+            if (password != confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<h1>Website Registration Form</h1>
+
+<form onsubmit="return validateForm()">
+
+<label>Full Name:</label><br>
+<input type="text" id="name"><br><br>
+
+<label>Email:</label><br>
+<input type="text" id="email"><br><br>
+
+<label>Contact Number:</label><br>
+<input type="text" id="contact"><br><br>
+
+<label>Date of Birth:</label><br>
+<input type="date" id="dob"><br><br>
+
+<label>Gender:</label><br>
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+<br><br>
+
+<label>Password:</label><br>
+<input type="password" id="password"><br><br>
+
+<label>Confirm Password:</label><br>
+<input type="password" id="confirmPassword"><br><br>
+
+
+
+<input type="submit" value="submit">
+
+</form>
+
+</body>
+</html>
